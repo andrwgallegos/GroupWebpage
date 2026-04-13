@@ -1,90 +1,388 @@
-/* General page styling */
+/* =========================
+   ROOT / THEME
+   Update these colors if the team wants a different identity.
+========================= */
+:root {
+    --bg-dark: #0f172a;
+    --bg-mid: #1e293b;
+    --bg-light: #f8fafc;
+    --card-bg: #ffffff;
+    --text-dark: #111827;
+    --text-light: #e2e8f0;
+    --accent-primary: #38bdf8;
+    --accent-secondary: #a78bfa;
+    --accent-third: #34d399;
+    --border-color: #dbe4ee;
+    --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.12);
+    --radius-lg: 18px;
+    --radius-md: 12px;
+    --transition: 0.3s ease;
+}
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     margin: 0;
-    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(180deg, var(--bg-dark), var(--bg-mid) 25%, var(--bg-light) 25%);
+    color: var(--text-dark);
+    line-height: 1.6;
 }
 
-/* Header section styling */
-header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
+img {
+    max-width: 100%;
+    display: block;
 }
 
-/* Styling for team logo image */
-.team-logo {
-    width: 150px; /* Adjust the size as needed */
-    margin-top: 10px;
+h1,
+h2,
+h3,
+h4 {
+    margin-top: 0;
 }
 
-/* Menu button styling */
-header nav {
-    margin-top: 10px;
-}
-
-header nav button {
-    background: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 5px;
-}
-
-header nav button:hover {
-    background: #0056b3;
-}
-
-/* Flex container for team bios and vision sections */
 .container {
-    width: 80%;
-    margin: 20px auto;
+    width: min(1100px, 92%);
+    margin: 0 auto 40px;
+}
+
+/* =========================
+   HERO / HEADER
+========================= */
+.hero {
+    color: var(--text-light);
+    padding: 40px 20px 30px;
+}
+
+.hero-content {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+.logo-block {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.logo-placeholder {
+    width: 90px;
+    height: 90px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-soft);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo-placeholder span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    margin-bottom: 6px;
+    font-size: 2.4rem;
+}
+
+.tagline {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.hero-text {
+    max-width: 750px;
+    margin: 18px 0 0;
+    color: #dbeafe;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+.main-nav {
+    margin-top: 24px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 12px;
 }
 
-/* Card styling for individual team bios */
+.nav-btn,
+.toggle-btn {
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: bold;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+    background: var(--accent-primary);
+    color: #062033;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   SECTION STYLES
+========================= */
+.section {
+    padding: 28px 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: var(--bg-dark);
+}
+
+.section-subtitle {
+    margin-top: 0;
+    margin-bottom: 28px;
+    color: #475569;
+}
+
+.hidden-section {
+    display: none;
+}
+
+.active-section {
+    display: block;
+}
+
+/* =========================
+   TEAM CARDS
+========================= */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
 .card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 20px;
-    flex: 1 1 calc(30% - 40px);
-    text-align: center;
-    transition: transform 0.2s;
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-color);
+    transition: transform var(--transition), box-shadow var(--transition);
+    position: relative;
+    overflow: hidden;
 }
 
 .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(15, 23, 42, 0.16);
+}
+
+.andrew-card {
+    border-top: 6px solid var(--accent-primary);
+}
+
+.dalia-card {
+    border-top: 6px solid var(--accent-secondary);
+}
+
+.xanaan-card {
+    border-top: 6px solid var(--accent-third);
+}
+
+.profile-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.profile-img {
+    width: 82px;
+    height: 82px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #e2e8f0;
+    background: #e5e7eb;
+}
+
+.role {
+    margin: 4px 0 0;
+    color: #64748b;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.short-intro {
+    color: #334155;
+    margin-bottom: 16px;
+}
+
+.toggle-btn {
+    width: 100%;
+    background: var(--bg-dark);
+    color: white;
+    padding: 12px 14px;
+    border-radius: 10px;
+}
+
+.toggle-btn:hover {
+    background: var(--accent-primary);
+    color: #062033;
+}
+
+/* =========================
+   HIDDEN / EXPANDABLE BIO AREA
+========================= */
+.bio-content {
+    display: none;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    animation: fadeIn 0.35s ease;
+}
+
+.bio-content.show {
+    display: block;
+}
+
+.moodboard {
+    margin-top: 18px;
+}
+
+.moodboard h4 {
+    margin-bottom: 10px;
+    color: var(--bg-dark);
+}
+
+.moodboard-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.moodboard-items span,
+.moodboard-items a {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: #e2e8f0;
+    color: #0f172a;
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: var(--transition);
+}
+
+.moodboard-items a:hover,
+.moodboard-items span:hover {
+    background: var(--accent-primary);
+    color: #062033;
     transform: scale(1.05);
 }
 
-h2 {
-    margin: 0 0 10px;
+/* =========================
+   VISION / MISSION LAYOUT
+========================= */
+.vision-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
 }
 
-/* Initially hide bio details */
-.bio {
-    display: none;
-    margin-top: 10px;
-    color: #555;
+.vision-card {
+    background: white;
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-color);
 }
 
-/* Button styling */
-button {
-    background: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
+.vision-card h3 {
+    margin-bottom: 12px;
+    color: var(--bg-dark);
 }
 
-button:hover {
-    background: #0056b3;
+.vision-card ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.vision-card li {
+    margin-bottom: 8px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE STYLES
+========================= */
+@media (max-width: 900px) {
+    .card-grid,
+    .vision-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding-top: 28px;
+    }
+
+    .logo-block {
+        align-items: flex-start;
+    }
+
+    .logo-placeholder {
+        width: 72px;
+        height: 72px;
+    }
+
+    .profile-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-img {
+        width: 72px;
+        height: 72px;
+    }
+
+    .nav-btn {
+        width: 100%;
+    }
 }
