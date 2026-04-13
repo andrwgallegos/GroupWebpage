@@ -17,7 +17,7 @@ The webpage includes:
 
 ## Team Members
 - Dalia F.
-- Xanaan S.
+- Xanaan s.
 - Andrew G.
 
 ## Assignment Goals
