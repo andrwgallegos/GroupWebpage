@@ -1,33 +1,64 @@
 /**
- * Toggles the display of an individual team member's bio
- * @param {string} bioId - The ID of the bio section to show or hide
+ * Handles navigation between page sections and individual bio toggles.
+ * Built to be easy for teammates to maintain and expand.
  */
-function toggleBio(bioId) {
-    const bio = document.getElementById(bioId);
-    // Toggle between showing and hiding the bio section
-    if (bio.style.display === "none" || bio.style.display === "") {
-        bio.style.display = "block";
-    } else {
-        bio.style.display = "none";
-    }
+
+document.addEventListener("DOMContentLoaded", function () {
+    setupSectionNavigation();
+    setupBioToggles();
+});
+
+/**
+ * Adds click behavior for navigation buttons.
+ */
+function setupSectionNavigation() {
+    const navButtons = document.querySelectorAll(".nav-btn");
+    const sections = document.querySelectorAll(".section");
+
+    navButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            const targetSectionId = button.dataset.section;
+
+            sections.forEach(function (section) {
+                section.classList.add("hidden-section");
+                section.classList.remove("active-section");
+            });
+
+            navButtons.forEach(function (navBtn) {
+                navBtn.classList.remove("active");
+            });
+
+            const targetSection = document.getElementById(targetSectionId);
+            if (targetSection) {
+                targetSection.classList.remove("hidden-section");
+                targetSection.classList.add("active-section");
+            }
+
+            button.classList.add("active");
+        });
+    });
 }
 
 /**
- * Shows the specified section ('bios' or 'vision') and hides the other
- * @param {string} sectionId - The ID of the section to display
+ * Adds click behavior for bio expansion buttons.
  */
-function showSection(sectionId) {
-    const biosSection = document.getElementById("bios");
-    const visionSection = document.getElementById("vision");
+function setupBioToggles() {
+    const toggleButtons = document.querySelectorAll(".toggle-btn");
 
-    // Display the bios section and hide the vision section
-    if (sectionId === "bios") {
-        biosSection.style.display = "flex";
-        visionSection.style.display = "none";
-    }
-    // Display the vision section and hide the bios section
-    else if (sectionId === "vision") {
-        biosSection.style.display = "none";
-        visionSection.style.display = "block";
-    }
+    toggleButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            const targetId = button.dataset.target;
+            const targetElement = document.getElementById(targetId);
+
+            if (!targetElement) {
+                return;
+            }
+
+            const isOpen = targetElement.classList.contains("show");
+
+            targetElement.classList.toggle("show");
+            button.setAttribute("aria-expanded", String(!isOpen));
+            button.textContent = isOpen ? "Show Bio & Moodboard" : "Hide Bio & Moodboard";
+        });
+    });
 }
