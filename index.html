@@ -3,53 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Bio</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <title>DXA Team Bios</title>
+    <meta name="description" content="Meet Team DXA - Andrew, Dalia, and Xanaan. Learn about our team mission, values, and inspirations in computer science.">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="hero">
+        <div class="hero-content">
+            <div class="logo-block">
+                <!-- Replace this with your real logo image later if you want -->
+                <div class="logo-placeholder" aria-label="DXA team logo">
+                    <span>DXA</span>
+                </div>
+                <div>
+                    <h1>Meet Team DXA</h1>
+                    <p class="tagline">Design. Execute. Adapt.</p>
+                </div>
+            </div>
 
-<header>
-    <h1>Meet Our Team</h1>
-    <!-- Example team logo -->
-    <img src="img/team-logo.png" alt="Team Logo" class="team-logo">
+            <p class="hero-text">
+                We are DXA — a collaborative team of computer science students focused on building thoughtful,
+                creative, and practical solutions through teamwork, adaptability, and strong communication.
+            </p>
 
-    <!-- Navigation menu to switch between sections -->
-    <nav>
-        <button onclick="showSection('bios')">Team Bios</button>
-        <button onclick="showSection('vision')">Team Vision</button>
-    </nav>
-</header>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-btn active" data-section="bios">Team Bios</button>
+                <button class="nav-btn" data-section="vision">Mission & Rules</button>
+            </nav>
+        </div>
+    </header>
 
-<!-- Team bios section (default section) -->
-<div id="bios" class="container">
-    <!-- Each card represents an individual team member -->
-    <div class="card">
-        <h2>John Doe</h2>
-        <p>Frontend Developer</p>
-        <button onclick="toggleBio('bio1')">Show Bio</button>
-        <p id="bio1" class="bio">John is a skilled frontend developer with 5 years of experience in creating responsive web applications.</p>
-    </div>
-    <div class="card">
-        <h2>Jane Smith</h2>
-        <p>Backend Developer</p>
-        <button onclick="toggleBio('bio2')">Show Bio</button>
-        <p id="bio2" class="bio">Jane is a backend developer specializing in server-side logic and database management.</p>
-    </div>
-    <div class="card">
-        <h2>Emily Johnson</h2>
-        <p>UI/UX Designer</p>
-        <button onclick="toggleBio('bio3')">Show Bio</button>
-        <p id="bio3" class="bio">Emily is a UI/UX designer with a passion for creating user-friendly interfaces.</p>
-    </div>
-</div>
+    <main>
+        <!-- TEAM BIOS SECTION -->
+        <section id="bios" class="section container active-section">
+            <h2 class="section-title">Our Team</h2>
+            <p class="section-subtitle">
+                Each member brings a unique perspective, style, and set of inspirations to DXA.
+            </p>
 
-<!-- Team vision/mission statement section (hidden by default) -->
-<div id="vision" class="container" style="display: none;">
-    <h2>Our Mission Statement</h2>
-    <p>We strive to create a collaborative, inclusive, and innovative environment where team members feel empowered to push boundaries and achieve excellence in their craft. Our mission is to deliver high-quality solutions that meet and exceed our clients' expectations.</p>
-</div>
+            <div class="card-grid">
+                <!-- Andrew -->
+                <article class="card andrew-card">
+                    <div class="profile-top">
+                        <img src="img/andrew-avatar.jpg" alt="Andrew G. avatar" class="profile-img">
+                        <div>
+                            <h3>Andrew G.</h3>
+                            <p class="role">Project Coordination / Development</p>
+                        </div>
+                    </div>
 
-<script src="script.js"></script> <!-- Link to external JavaScript file -->
+                    <p class="short-intro">
+                        Andrew focuses on organization, team alignment, and turning ideas into clean, usable work.
+                    </p>
 
+                    <button class="toggle-btn" data-target="bio-andrew" aria-expanded="false">
+                        Show Bio & Moodboard
+                    </button>
+
+                    <div id="bio-andrew" class="bio-content">
+                        <p>
+                            Andrew enjoys combining structure, creativity, and problem-solving. He values clear
+                            communication, practical design, and making sure projects stay polished and on track.
+                        </p>
+
+                        <div class="moodboard">
+                            <h4>CS Moodboard</h4>
+                            <div class="moodboard-items">
+                                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                <span>Clean UI</span>
+                                <span>Problem Solving</span>
+                                <span>Team Leadership</span>
+                                <span>Innovation</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Dalia -->
+                <article class="card dalia-card">
+                    <div class="profile-top">
+                        <img src="img/dalia-avatar.jpg" alt="Dalia F. avatar" class="profile-img">
+                        <div>
+                            <h3>Dalia F.</h3>
+                            <p class="role">Design / Content / Collaboration</p>
+                        </div>
+                    </div>
+
+                    <p class="short-intro">
+                        Dalia brings creativity, thoughtful ideas, and a strong eye for presentation and collaboration.
+                    </p>
+
+                    <button class="toggle-btn" data-target="bio-dalia" aria-expanded="false">
+                        Show Bio & Moodboard
+                    </button>
+
+                    <div id="bio-dalia" class="bio-content">
+                        <p>
+                            Dalia contributes creativity and perspective to the team. She helps shape how ideas are
+                            communicated and presented while supporting a collaborative and respectful team environment.
+                        </p>
+
+                        <div class="moodboard">
+                            <h4>CS Moodboard</h4>
+                            <div class="moodboard-items">
+                                <a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer">Figma</a>
+                                <span>Visual Design</span>
+                                <span>User Experience</span>
+                                <span>Creative Thinking</span>
+                                <span>Team Support</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Xanaan -->
+                <article class="card xanaan-card">
+                    <div class="profile-top">
+                        <img src="img/xanaan-avatar.jpg" alt="Xanaan S. avatar" class="profile-img">
+                        <div>
+                            <h3>Xanaan S.</h3>
+                            <p class="role">Technical Strategy / Systems Thinking</p>
+                        </div>
+                    </div>
+
+                    <p class="short-intro">
+                        Xanaan contributes strong technical thinking, systems awareness, and a practical problem-solving mindset.
+                    </p>
+
+                    <button class="toggle-btn" data-target="bio-xanaan" aria-expanded="false">
+                        Show Bio & Moodboard
+                    </button>
+
+                    <div id="bio-xanaan" class="bio-content">
+                        <p>
+                            Xanaan brings analytical thinking and technical insight to DXA. He helps the team think
+                            critically about implementation, functionality, and how ideas translate into real solutions.
+                        </p>
+
+                        <div class="moodboard">
+                            <h4>CS Moodboard</h4>
+                            <div class="moodboard-items">
+                                <a href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer">MDN</a>
+                                <span>Systems</span>
+                                <span>Debugging</span>
+                                <span>Efficiency</span>
+                                <span>Architecture</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- MISSION / RULES SECTION -->
+        <section id="vision" class="section container hidden-section">
+            <h2 class="section-title">DXA Mission & Team Rules</h2>
+
+            <div class="vision-layout">
+                <div class="vision-card">
+                    <h3>Mission Statement</h3>
+                    <p>
+                        Team DXA is committed to creating work that is thoughtful, functional, and visually engaging.
+                        We value adaptability, communication, respect, and consistent effort. As computer scientists,
+                        we aim to learn continuously, support one another, and build solutions that reflect both technical
+                        skill and creativity.
+                    </p>
+                </div>
+
+                <div class="vision-card">
+                    <h3>Team Identity</h3>
+                    <ul>
+                        <li>We value communication and accountability.</li>
+                        <li>We approach problems with creativity and logic.</li>
+                        <li>We support each other’s growth and contributions.</li>
+                        <li>We want our work to be both functional and polished.</li>
+                    </ul>
+                </div>
+
+                <div class="vision-card">
+                    <h3>Team Rules</h3>
+                    <ul>
+                        <li>Respect everyone’s ideas and time.</li>
+                        <li>Communicate updates early and clearly.</li>
+                        <li>Complete assigned tasks by agreed deadlines.</li>
+                        <li>Ask for help when blocked instead of going silent.</li>
+                        <li>Keep contributions organized for the rest of the team.</li>
+                        <li>Encourage improvement without putting others down.</li>
+                    </ul>
+                </div>
+
+                <div class="vision-card">
+                    <h3>Suggested Roles</h3>
+                    <ul>
+                        <li><strong>Andrew:</strong> Coordinator / Content Integration</li>
+                        <li><strong>Dalia:</strong> Design / Visual Style</li>
+                        <li><strong>Xanaan:</strong> Technical Structure / Code Review</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
